@@ -1,0 +1,17 @@
+header {
+  font-family: 'Roboto Slab', serif;
+  background-color: #E5F3F2;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #E5F3F2;
+}
+
+h1 {
+  color: #6D6E71;
+}
+
+.idea-header {
+  color: #00A79D;
+}
