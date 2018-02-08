@@ -3,15 +3,16 @@ header {
   background-color: #E5F3F2;
 }
 
-body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: #E5F3F2;
+b {
+  color: #6D6E71;
 }
 
-h1 {
-  color: #6D6E71;
+main {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #E5F3F2;
 }
 
 .idea-header {
   color: #00A79D;
 }
+
