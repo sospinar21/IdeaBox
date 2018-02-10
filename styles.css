@@ -49,6 +49,11 @@ button {
   color:#c5c6c8;
 }
 
+ul{
+  width: 100%;
+  height: 100%;
+}
+
 main{
   width: 100%;
   height: 50vh;
@@ -86,6 +91,13 @@ main{
   background-color: #00A79D;
   color: white;
 }
+
+
+.genius{}
+
+.plausible{}
+
+.swill{}
 
 .secondSection {
   height: 100%;
@@ -126,3 +138,4 @@ main{
 .downArrow:hover {
   content: url('images/downvote-hover.svg');
 }
+
