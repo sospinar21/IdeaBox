@@ -14,6 +14,7 @@ html{
   margin:0;
   font-size: 0;
 }
+
 form{
   width: 100%;
 }
@@ -33,6 +34,15 @@ input{
   padding:10px;
   color:#c5c6c8;
   border:1px solid #c5c6c8;
+}
+
+img {
+  height: 30px;
+  width: 30px;
+}
+
+button {
+  border-style: none;
 }
 
 ::placeholder{
@@ -58,7 +68,7 @@ main{
   margin-top: 0;
 }
 
-.idea-header {
+.ideaHeader {
   color: #00A79D;
   font-size: 70px;
   margin: 0;
@@ -70,20 +80,62 @@ main{
 
 .bodyInput{
   margin-top: 20px;
-  margin-bottom: 20px
+  margin-bottom: 20px;
 }
 
-.save-button{
+.saveButton{
   width: 100%;
   font-family: 'Open Sans', sans-serif;
   font-size: 25px;
   padding: 10px;
-  background-color:#00A79D;
-  color:white;
+  background-color: #00A79D;
+  color: white;
 }
+
 
 .genius{}
 
 .plausible{}
 
 .swill{}
+
+.secondSection {
+  height: 100%;
+  display: block;
+  box-sizing: border-box;
+
+}
+
+.searchBox {
+  margin-top: 40px;
+}
+
+.newIdeas {
+  margin-top: 20px;
+  border-bottom: #D1D3D4 solid 2px;
+  height: 100%;
+}
+
+.linkDelete {
+  float: right;
+}
+
+.deleteButton:hover {
+  content: url('images/delete-hover.svg');
+}
+
+.container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-content: flex-end;
+}
+
+.upArrow:hover {
+  content: url('images/upvote-hover.svg');
+}
+
+.downArrow:hover {
+  content: url('images/downvote-hover.svg');
+}
+
