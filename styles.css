@@ -14,6 +14,7 @@ html{
   margin:0;
   font-size: 0;
 }
+
 form{
   width: 100%;
 }
@@ -35,6 +36,15 @@ input{
   border:1px solid #c5c6c8;
 }
 
+img {
+  height: 30px;
+  width: 30px;
+}
+
+button {
+  border-style: none;
+}
+
 ::placeholder{
   color:#c5c6c8;
 }
@@ -53,7 +63,7 @@ main{
   margin-top: 0;
 }
 
-.idea-header {
+.ideaHeader {
   color: #00A79D;
   font-size: 70px;
   margin: 0;
@@ -65,24 +75,54 @@ main{
 
 .bodyInput{
   margin-top: 20px;
-  margin-bottom: 20px
+  margin-bottom: 20px;
 }
 
-.second-section {
+.saveButton{
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 25px;
+  padding: 10px;
+  background-color: #00A79D;
+  color: white;
+}
+
+.secondSection {
   height: 100%;
   display: block;
   box-sizing: border-box;
 
 }
 
-.new-ideas {
-  
+.searchBox {
+  margin-top: 40px;
 }
-.save-button{
-  width: 100%;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 25px;
-  padding: 10px;
-  background-color:#00A79D;
-  color:white;
+
+.newIdeas {
+  margin-top: 20px;
+  border-bottom: #D1D3D4 solid 2px;
+  height: 100%;
+}
+
+.linkDelete {
+  float: right;
+}
+
+.deleteButton:hover {
+  content: url('images/delete-hover.svg');
+}
+
+.container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-content: flex-end;
+}
+
+.upArrow:hover {
+  content: url('images/upvote-hover.svg');
+}
+
+.downArrow:hover {
+  content: url('images/downvote-hover.svg');
 }

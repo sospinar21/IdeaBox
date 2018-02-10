@@ -4,42 +4,33 @@
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab:700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="icon" href="images/dog1-sq.jpg" />
     <title>IdeaBox</title>
 </head>
 <main>
-<div class="wrapper">
-    <main>
-      <header>
-        <h1 class="idea-header">idea <b>box</b></h1>
-      </header>
-        <input type="text" placeholder="Title">
-        <input type="text" placeholder="Body">
-        <button class="read-button">Save</button>
-    </main>
-    <body>
-      <section class="second-section">
-        <article class="new-ideas">
-          <h3></h3>
-          <p></p>
-        </article>
-      </section>
-    </body>
-</div>
+  <div class="wrapper">
 <header>
-    <h1 class="idea-header">idea<b>box</b></h1>
+    <h1 class="ideaHeader">idea<b>box</b></h1>
 </header>
 <form>
     <input class= "titleInput" type="text" placeholder="Title" required="true">
-
     <input class= "bodyInput"  type="text" placeholder="Body" required="true">
-    <button class="save-button">Save</button>
+    <button class="saveButton">Save</button>
 </form>
-</div>
-</main>
-
-    <section>
-        
-    </section>
-
+      <section class="secondSection">
+        <input type="text" placeholder="Search" class="searchBox">
+        <article class="newIdeas">
+          <h3 class="example-title" style="color: #6D6E71" placeholder="Header">
+            <button class="linkDelete"><img class="deleteButton" src="images/delete.svg"></button></h3>
+          <br>
+          <p class="example-body" style="color: #939598" placeholder="Paragraph"></p>
+          <br>
+          <div class="container">
+          <button class ="linkUp" href=""><img class="upArrow" src="images/upvote.svg"></button>
+          <button class="linkDown" href=""><img class="downArrow" src="images/downvote.svg"></button>
+        </div>
+          <p class="quality" style="color: #6D6E71;" placeholder="quality:"></p>
+        </article>
+      </section>
+      </main>
+    </div>
 </html>

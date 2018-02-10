@@ -1,7 +1,17 @@
 var $inputHeader = $('.')
 var $inputBody = $('.')
 
-$('').on('keyup', );
+$('.search-box').on('keyup', searchBox);
 
-$('').append('h3');
-$('').append('p');
+function searchBox() {
+
+}
+
+function qualityType() {
+
+}
+
+
+
+$('').append(.example-title.val());
+$('').append(.example-body.val());
