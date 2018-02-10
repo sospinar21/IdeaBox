@@ -4,25 +4,30 @@
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab:700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="icon" href="images/dog1-sq.jpg" />
+   <!--  <link rel="icon" href="images/dog1-sq.jpg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>IdeaBox</title>
 </head>
+<body>
 <main>
 <div class="wrapper">
 <header>
     <h1 class="idea-header">idea<b>box</b></h1>
 </header>
 <form>
-    <input class= "titleInput" type="text" placeholder="Title" required="true">
+    <input class= "titleInput" placeholder="Title" required="true">
 
-    <input class= "bodyInput"  type="text" placeholder="Body" required="true">
+    <input class= "bodyInput"  placeholder="Body" required="true">
     <button class="save-button">Save</button>
 </form>
 </div>
 </main>
-
     <section>
-        
+        <ul class="ideaList">
+        </ul>
     </section>
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
 </html>
