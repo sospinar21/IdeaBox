@@ -3,41 +3,29 @@ var List = document.querySelector('.secondSection ul');
 var form = document.forms['inputForm'];
 
 $submit.on('click',function(e){
-// var $title = $('.titleInput').value;
-// var $body = $('.bodyInput').value;
 e.preventDefault();
-create();
-create2();
+createInput();
 form.reset();
 })
 
-function create(){
+function createInput(){
   var li = document.createElement('li');
-  var inputTitle = $('.titleInput').val();
-  var inputBody = $('.bodyInput').val();
+  var newTitle = document.querySelector('.titleInput').value;
+  var newBody = document.querySelector('.bodyInput').value;
 
-   li.classList.add('newIdeas');
-   List.appendChild(li); 
+  li.classList.add('newIdeas');
+  List.appendChild(li); 
 
-  var newTitle = `<h3> ${inputTitle} </h3>`;
-  var newBody =  `<p> ${inputBody} </p>`;
-   
-    $('ul').append(newTitle);
-    $('ul').append(newBody);
+  var inputTitle = $('<h3>' + newTitle + '</h3><img src="images/delete.svg" class="deleteButton" style="display: inline-block; float: right;">');
+  $('li').append(inputTitle);
+  var inputBody = $('<p class="example-body">' + newBody + '</p>');
+  $('li').append(inputBody);
+  var iconPic = $('<div class = "firstLine"><img src="images/upvote.svg" class="upArrow" style="padding-right: 30px; margin-bottom: 20px;"><img src="images/downvote.svg" class="downArrow"></div');
+  $('li').append(iconPic);
 
-    console.log('hello');
+  console.log(newTitle, newBody);
 }
 
-function create2(){
-
-  var t = $("<div class = 'firstLine'><h3 class='quality'></h3><img src='images/delete.svg' class='deleteButton'></div>");
-  $('li').append(t);
-  var t2 = $("<p class='example-body'></p>");
-  $('li').append(t2);
-  var t3 = $("<div class = 'lineThree'><img src='images/downvote.svg' class='downArrow'><img src='images/upvote.svg' class='upArrow'><p class='quality'></p></div>");
-  $('li').append(t3);
-
-}
 //   var title= document.createElement('h3').addClass(h3);
 //   var $text = document.createElement('p').addClass(example-body);
 //   var $linkDelete= document.createElement('img').addClass(deleteButton);
