@@ -13,15 +13,23 @@
     <header>
       <h1 class="ideaHeader">idea<b>box</b></h1>
     </header>
-  <form id ='inputForm'>
-    <input class= "titleInput" type="text" placeholder="Title" required="true">
-    <input class= "bodyInput"  type="text" placeholder="Body" required="true">
-    <button class="saveButton">save</button>
+  <form id ="inputForm">
+    <input class="titleInput" type="text" placeholder="Title" required/>
+    <input class="bodyInput"  type="text" placeholder="Body" required/>
+    <div id="checkbox">
+        <input class="genius ideaLevel" type="radio" name="quality" required="true"/>
+        <label for="genius">Genius</label>
+         <input class="plausible ideaLevel" type="radio" name="quality">
+         <label for="plausible">Plausible</label>
+         <input class="swill ideaLevel" type="radio" name="quality">
+         <label for="swill">Swill</label>
+    </div>
+    <input class="saveButton" type = "submit">save</input>
   </form>
   <section class="secondSection">
     <input type="text" placeholder="Search" class="searchBox">
     <ul>
-      <!-- <article class="newIdeas">
+      <article id ="ideaTemplate" class="newIdeas">
        <div class = "firstLine">
         <h3>Example Idea 1</h3>
         <img class="deleteButton" src="images/delete.svg">
@@ -34,7 +42,7 @@
           <img class="downArrow" src="images/downvote.svg">
           <p class="quality">quality:</p>
         </div>
-        </article> -->
+        </article>
   </ul>
   </section>
   </div>

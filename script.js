@@ -1,37 +1,36 @@
-var $submit = $('.saveButton');
-var List = document.querySelector('.secondSection ul');
-var form = document.forms['inputForm'];
+var boxTemplate = document.querySelector('#ideaTemplate');
+var saveButton = document.querySelector('.saveButton');
+var form = document.forms['inputForm']
+var list = document.querySelector('.secondSection ul');
+var titleInput = document.querySelector('.titleInput').value
+var bodyInput= document.querySelector('.bodyInput').value;
 
-$submit.on('click',function(e){
-var $title = $('.titleInput').value;
-var $body = $('.bodyInput').value;
+
+
+
+form.addEventListener('submit',function(e){
 e.preventDefault();
-form.reset();
-create();
-create2();
-})
+  // desable()
+ cloneIdea();
+ form.reset();
+});
 
-function create(){
-  var li= document.createElement('li');
-   li.classList.add('newIdeas');
-   List.appendChild(li); 
+
+
+
+function cloneIdea(){
+var boxCopy = boxTemplate.cloneNode(true);
+boxCopy.id = "";
+boxCopy.querySelector('h3').innerText= document.querySelector('.titleInput').value;
+boxCopy.querySelector('.example-body').innerText= document.querySelector('.bodyInput').value;
+list.appendChild(boxCopy);
+var deleteButton = boxCopy.querySelector('.deleteButton');
+deleteButton.addEventListener('click', deleteIdea)
 }
 
-function create2(){
-   var t = $("<div class = 'firstLine'><h3 class='quality'>Hola</h3><img src='images/delete.svg' class='deleteButton'></div>");
-  $('li').append(t);
-  var t2 = $("<p class='example-body'>Hola</p>");
-  $('li').append(t2);
-  var t3 = $("<div class = 'lineThree'><img src='images/downvote.svg' class='downArrow'><img src='images/upvote.svg' class='upArrow'><p class='quality'>hola</p></div>");
-  $('li').append(t3);
+
+function deleteIdea(ev){
+ var box = ev.target.closest('.newIdeas');
+ list.removeChild(box);
 
 }
-//   var title= document.createElement('h3').addClass(h3);
-//   var $text = document.createElement('p').addClass(example-body);
-//   var $linkDelete= document.createElement('img').addClass(deleteButton);
-//   var buttonDown = document.createElement('img').addClass(downArrow);
-//   var linkUp = document.createElement('img').addClass(upArrow);
-//   var quality = document.createElement('p').addClass(quality);
-
-
-
