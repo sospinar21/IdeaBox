@@ -104,7 +104,6 @@ function deleteIdea(ev){
  localStorage.setItem('idea', ideaStr);
 }
 
-
 function createInput(){
   var li = document.createElement('li');
 
