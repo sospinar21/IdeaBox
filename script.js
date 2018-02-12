@@ -32,3 +32,17 @@ function deleteIdea(ev){
  var box = ev.target.closest('.newIdeas');
  list.removeChild(box);
 }
+
+function createInput(){
+  var li = document.createElement('li');
+
+  li.classList.add('newIdeas');
+  list.appendChild(li); 
+
+  var newTitle = $('<h3>' + titleInput + '</h3><img src="images/delete.svg" class="deleteButton" style="display: inline-block; float: right;">');
+  $('li').append(newTitle);
+  var newBody = $('<p class="example-body">' + bodyInput + '</p>');
+  $('li').append(newBody);
+  var iconPic = $('<div class = "firstLine"><img src="images/upvote.svg" class="upArrow" style="padding-right: 30px; margin-bottom: 20px;"><img src="images/downvote.svg" class="downArrow"></div');
+  $('li').append(iconPic);
+}
