@@ -17,29 +17,36 @@
     <input class="titleInput" type="text" placeholder="Title" required/>
     <input class="bodyInput"  type="text" placeholder="Body" required/>
     <div id="checkbox">
-        <input class="genius ideaLevel" type="radio" name="quality" required="true"/>
+        <input class="genius ideaLevel" type="radio" name="quality" value = "genius" required="true"/>
         <label for="genius">Genius</label>
-         <input class="plausible ideaLevel" type="radio" name="quality">
+         <input class="plausible ideaLevel" type="radio" name="quality" value = "plausible">
          <label for="plausible">Plausible</label>
-         <input class="swill ideaLevel" type="radio" name="quality">
+         <input class="swill ideaLevel" type="radio" name="quality" value = "swill" checked/>
          <label for="swill">Swill</label>
     </div>
-    <input class="saveButton" type = "submit">save</input>
+    <input class="saveButton" type = "submit" value="Save"></input>
+  </form>
   <section class="secondSection">
     <input type="text" placeholder="Search" class="searchBox">
     <ul>
       <article id ="ideaTemplate" class="newIdeas">
        <div class = "firstLine">
-        <h3>Example Idea 1</h3>
+        <textarea class="title" rows="1"></textarea>
         <img class="deleteButton" src="images/delete.svg">
         <br>
        </div>
-        <p class="example-body">idea</p>
+        <textarea class="example-body" rows="2"></textarea>
         <br>
         <div class="lineThree">
           <img class="upArrow" src="images/upvote.svg">
-          <img class="downArrow" src="images/downvote.svg">
+          <img class="downArrow" src="images/downvote.svg"><br /><br /><br />
           <p class="quality">quality:</p>
+          <select class="quality">
+            <option value ="genius">Genius</option>
+            <option value ="plausible">Plausible</option>
+            <option value ="swill">Swill</option>
+          </select>
+
         </div>
         </article>
   </ul>
