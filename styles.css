@@ -156,7 +156,7 @@ p{
 
 .ideaLevel{
   display: inline-block;
-  width: 0;
+  flex-shrink: 0;
   width: 20px;
 }
 .genius{
