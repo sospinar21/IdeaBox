@@ -32,14 +32,6 @@ img {
   width: 30px;
 }
 
-h3{
-  font-size: 25px;
-  color: #6D6E71;
-  font-weight: bold;
-  margin:0;
-  display: inline-block;
-  flex:95%;
-}
 
 button {
   border-style: none;
@@ -67,6 +59,23 @@ ul{
   height: 100%;
   margin:0;
   padding: 0;
+}
+
+select{
+  border:none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  outline: none;
+  font-weight: bolder;
+  color:#939598;
+}
+
+textarea{
+  font-family: 'Open Sans', sans-serif;
+  border:none;
+  outline: none;
+  resize: none;
+
 }
 
 main{
@@ -112,6 +121,15 @@ p{
   
 }
 
+.title{
+  font-size: 30px;
+  color: #6D6E71;
+  font-weight: bold;
+  margin:0;
+  display: inline-block;
+  flex:95%;
+}
+
 .bodyInput{
   margin-top: 20px;
   margin-bottom: 20px;
@@ -124,6 +142,10 @@ p{
   padding: 7px;
   background-color: #00A79D;
   color: white;
+}
+
+.saveButton:hover{
+  background-color: #045E55;
 }
 
 .inline{
@@ -167,7 +189,7 @@ p{
 }
 
 .deleteButton {
-  flex: 5%;
+  flex:5%;
   z-index: 5;
 }
 
@@ -178,7 +200,7 @@ p{
 .lineThree{
     display: flex;
     justify-content: space-between;
-    width: 30%;
+    width: 300px;
     margin-bottom: 25px;
 }
 
@@ -201,4 +223,11 @@ p{
 }
 .downArrow{
   display: inline-block;
+}
+
+.example-body{
+  font-size: 25px;
+  color:#939598;
+  margin: 15px 0 17px 0;
+  width: 100%;
 }
