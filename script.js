@@ -54,7 +54,7 @@ function cloneIdea(){
   title.innerText= ideaObject.title;
   body.innerText= ideaObject.body;
   boxCopy.querySelector('select').value= ideaObject.quality;
-  list.insertBefore(boxCopy,list.firstchild);
+  list.prepend(boxCopy);
   var deleteButton = boxCopy.querySelector('.deleteButton');
   deleteButton.addEventListener('click', deleteIdea);
 }
@@ -69,7 +69,7 @@ function createOldIdea(idea){
   boxCopy.querySelector('textarea').innerText= idea.title;
   boxCopy.querySelector('.example-body').innerText= idea.body;
   boxCopy.querySelector('select').value= idea.quality;
-  list.appendChild(boxCopy);
+  list.prepend(boxCopy);
   var deleteButton = boxCopy.querySelector('.deleteButton');
   deleteButton.addEventListener('click', deleteIdea)
 }
@@ -101,8 +101,6 @@ function ideaStorage(){
 }
 
 
-var ideaStr = JSON.stringify(ideas);
-  localStorage.setItem('idea', ideaStr);
 
 // search bar
 $(document).ready(function($){
