@@ -6,6 +6,7 @@ var titleInput = document.querySelector('.titleInput').value
 var bodyInput= document.querySelector('.bodyInput').value;
 var ideaString = localStorage.getItem('idea');
 var ideas = JSON.parse(ideaString);
+
 if(ideas){
   window.onload = oldIdeas();
 } else{
@@ -13,6 +14,7 @@ if(ideas){
 }
 
 $("input[type=submit]").attr('disabled','disabled');
+
 
 $("form").change(enable);
 function enable(){
@@ -24,12 +26,6 @@ $("input[type=submit]").removeAttr('disabled');
 }
 
 
-function oldIdeas(){
-  for(i=0; i<ideas.length; i++){
-  createOldIdea(ideas[i]);
-} 
-}
-
 // clone box with the user's input
 form.addEventListener('submit',function(e){
   enable()
@@ -38,6 +34,11 @@ form.addEventListener('submit',function(e){
   form.reset();
 });
 
+function oldIdeas(){
+  for(i=0; i<ideas.length; i++){
+  createOldIdea(ideas[i]);
+} 
+}
 
 // getting random id
 function random(min,max){
@@ -134,6 +135,36 @@ $(document).ready(function($){
     )
   })
 })
+
+
+
+$('.upArrow').on('click', upVote);
+$('.downArrow').on('click', downVote);
+
+function upVote() {
+  var quality = $(this).parent().find('.qualType').text();
+
+  if(quality === 'swill') {
+    $(this).parent().find('.qualType').text('plausible');
+  } else {
+    $(this).parent().find('.qualType').text('genius');
+  }
+
+  console.log('bahhh');
+}
+
+function downVote() {
+  var quality = $(this).parent().find('.qualType').text();
+
+  if(quality === 'genius') {
+    $(this).parent().find('.qualType').text('plausible');
+  } else {
+    $(this).parent().find('.qualType').text('swill');
+  }
+
+  console.log('bahhhh 2');
+}    
+
 
 // function createInput(){
 //   var li = document.createElement('li');
