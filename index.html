@@ -30,7 +30,7 @@
   <section class="secondSection">
     <input type="text" placeholder="Search" class="searchBox">
     <ul class = "list">
-      <li id ="ideaTemplate" class="newIdeas">
+      <article id ="ideaTemplate" class="newIdeas">
        <div class = "firstLine">
         <textarea class="title" rows="1"></textarea>
         <img class="deleteButton" src="images/delete.svg">
@@ -40,15 +40,10 @@
         <br>
         <div class="lineThree">
           <img class="upArrow" src="images/upvote.svg">
-          <img class="downArrow" src="images/downvote.svg"><br /><br /><br />
-          <p class="quality">quality:</p>
-          <select class="quality">
-            <option id = "quality" value ="genius">Genius</option>
-            <option id = "quality" value ="plausible">Plausible</option>
-            <option id = "quality" value ="swill">Swill</option>
-          </select>
+          <img class="downArrow" src="images/downvote.svg">
+            <p class="quality" id="qualityTag">quality: <span class="qualType">swill</span></p>
         </div>
-        </li>
+        </article>
   </ul>
   </section>
   </div>
