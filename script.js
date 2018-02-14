@@ -12,6 +12,10 @@ if(ideas){
   ideas = [];
 }
 
+$("input[type=submit]").attr('disabled','disabled');
+$("input").keyup(function(){
+$("input[type=submit]").removeAttr('disabled');
+});
 
 function oldIdeas(){
   for(i=0; i<ideas.length; i++){
