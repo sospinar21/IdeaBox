@@ -66,11 +66,13 @@ function cloneIdea(){
   var body = boxCopy.querySelector('.example-body');
   title.innerText= ideaObject.title;
   body.innerText= ideaObject.body;
-  boxCopy.querySelector('select').value= ideaObject.quality;
+  // boxCopy.querySelector('select').value= ideaObject.quality;
   list.prepend(boxCopy);
   var deleteButton = boxCopy.querySelector('.deleteButton');
   deleteButton.addEventListener('click', deleteIdea);
   $("input[type=submit]").attr('disabled','disabled');
+  $('.upArrow').on('click', upVote);
+  $('.downArrow').on('click', downVote);
 }
 
 // on change add class 
@@ -82,10 +84,12 @@ function createOldIdea(idea){
   boxCopy.id = idea.id;
   boxCopy.querySelector('textarea').innerText= idea.title;
   boxCopy.querySelector('.example-body').innerText= idea.body;
-  boxCopy.querySelector('select').value= idea.quality;
+  // boxCopy.querySelector('select').value= idea.quality;
   list.prepend(boxCopy);
   var deleteButton = boxCopy.querySelector('.deleteButton');
   deleteButton.addEventListener('click', deleteIdea);
+  $('.upArrow').on('click', upVote);
+  $('.downArrow').on('click', downVote);
 }
 
 //  assign values to stored boxes
@@ -94,7 +98,7 @@ function ideaStorage(){
   idea.title = document.querySelector('.titleInput').value;
   idea.body = document.querySelector('.bodyInput').value;
   idea.id = loop();
-  idea.quality = document.querySelector("input[name ='quality']:checked").value;
+  // idea.quality = document.querySelector("input[name ='quality']:checked").value;
   ideas.push(idea);
   var ideaString = JSON.stringify(ideas);
   localStorage.setItem('idea',ideaString);
@@ -150,7 +154,6 @@ function upVote() {
     $(this).parent().find('.qualType').text('genius');
   }
 
-  console.log('bahhh');
 }
 
 function downVote() {
@@ -161,8 +164,6 @@ function downVote() {
   } else {
     $(this).parent().find('.qualType').text('swill');
   }
-
-  console.log('bahhhh 2');
 }    
 
 
