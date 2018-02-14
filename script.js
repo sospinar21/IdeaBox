@@ -13,9 +13,16 @@ if(ideas){
 }
 
 $("input[type=submit]").attr('disabled','disabled');
-$("input").keyup(function(){
+
+$("form").change(enable);
+function enable(){
+  if ($('bodyInput') == " "&& $('titleInput') == ""){
+    $("input[type=submit]").attr('disabled','disabled');
+  }else{
 $("input[type=submit]").removeAttr('disabled');
-});
+}
+}
+
 
 function oldIdeas(){
   for(i=0; i<ideas.length; i++){
@@ -25,6 +32,7 @@ function oldIdeas(){
 
 // clone box with the user's input
 form.addEventListener('submit',function(e){
+  enable()
   e.preventDefault();
   cloneIdea();
   form.reset();
@@ -61,6 +69,7 @@ function cloneIdea(){
   list.prepend(boxCopy);
   var deleteButton = boxCopy.querySelector('.deleteButton');
   deleteButton.addEventListener('click', deleteIdea);
+  $("input[type=submit]").attr('disabled','disabled');
 }
 
 // on change add class 
@@ -75,7 +84,7 @@ function createOldIdea(idea){
   boxCopy.querySelector('select').value= idea.quality;
   list.prepend(boxCopy);
   var deleteButton = boxCopy.querySelector('.deleteButton');
-  deleteButton.addEventListener('click', deleteIdea)
+  deleteButton.addEventListener('click', deleteIdea);
 }
 
 //  assign values to stored boxes
@@ -108,14 +117,16 @@ function ideaStorage(){
 
 // search bar
 $(document).ready(function($){
+  var ideasSearch = document.querySelector('.newIdeas');
   $('li').each(function(){
-    $(this).attr('data-search-term', $(this).text().toLowerCase())
+    $(this).attr('ideasSearch', $(this).text().toLowerCase())
   })
   $('.searchBox').on('keyup',function(){
     var searchTerm = $(this).val().toLowerCase();
     $('.newIdeas').each(function(){
-      if($(this).filter('[data-search-term *= ' + searchTerm + ']').length > 0 || searchTerm.length < 1){
+      if($(this).filter('[ideasSearch *= ' + searchTerm + ']').length > 0 || searchTerm.length < 1){
         $(this).show();
+        $('#ideaTemplate').hide()
       }else {
         $(this).hide();
       }  
@@ -123,10 +134,6 @@ $(document).ready(function($){
     )
   })
 })
-
-
-
-  
 
 // function createInput(){
 //   var li = document.createElement('li');
