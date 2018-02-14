@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>IdeaBox</title>
+    <link rel="icon" href="https://cdn3.iconfinder.com/data/icons/abstract-1/512/idea_E-512.png">
 </head>
 <body>
 <main>
@@ -28,8 +29,8 @@
   </form>
   <section class="secondSection">
     <input type="text" placeholder="Search" class="searchBox">
-    <ul>
-      <article id ="ideaTemplate" class="newIdeas">
+    <ul class = "list">
+      <li id ="ideaTemplate" class="newIdeas">
        <div class = "firstLine">
         <textarea class="title" rows="1"></textarea>
         <img class="deleteButton" src="images/delete.svg">
@@ -42,12 +43,12 @@
           <img class="downArrow" src="images/downvote.svg"><br /><br /><br />
           <p class="quality">quality:</p>
           <select class="quality">
-            <option value ="genius">Genius</option>
-            <option value ="plausible">Plausible</option>
-            <option value ="swill">Swill</option>
+            <option id = "quality" value ="genius">Genius</option>
+            <option id = "quality" value ="plausible">Plausible</option>
+            <option id = "quality" value ="swill">Swill</option>
           </select>
         </div>
-        </article>
+        </li>
   </ul>
   </section>
   </div>
