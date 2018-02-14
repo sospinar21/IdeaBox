@@ -23,7 +23,7 @@ input{
   width: 53.5vw;
   font-size: 25px;
   padding: 6px;
-  color: #c5c6c8;
+  color: black;
   border: 2px solid #c2c6c7;
 }
 
@@ -142,10 +142,17 @@ p{
   padding: 7px;
   background-color: #00A79D;
   color: white;
+
 }
 
 .saveButton:hover{
   background-color: #045E55;
+}
+
+.saveButton:disabled{
+  border: 2px solid #00a79d;
+  background-color: #888181;
+  color: #b1a9a9;
 }
 
 .inline{

@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>IdeaBox</title>
+    <link rel="icon" href="https://cdn3.iconfinder.com/data/icons/abstract-1/512/idea_E-512.png">
 </head>
 <body>
 <main>
@@ -18,18 +19,18 @@
     <input class="bodyInput"  type="text" placeholder="Body" required/>
     <div id="checkbox">
         <input class="genius ideaLevel" type="radio" name="quality" value = "genius" required="true"/>
-        <label for="genius">genius</label>
+        <label for="genius">Genius</label>
          <input class="plausible ideaLevel" type="radio" name="quality" value = "plausible">
-         <label for="plausible">plausible</label>
+         <label for="plausible">Plausible</label>
          <input class="swill ideaLevel" type="radio" name="quality" value = "swill" checked/>
-         <label for="swill">swill</label>
+         <label for="swill">Swill</label>
     </div>
     <input class="saveButton" type = "submit" value="save"></input>
   </form>
   <section class="secondSection">
     <input type="text" placeholder="Search" class="searchBox">
-    <ul>
-      <article id="ideaTemplate" class="newIdeas">
+    <ul class = "list">
+      <li id ="ideaTemplate" class="newIdeas">
        <div class = "firstLine">
         <textarea class="title" rows="1"></textarea>
         <img class="deleteButton" src="images/delete.svg">
@@ -39,10 +40,12 @@
         <br>
         <div class="lineThree">
           <img class="upArrow" src="images/upvote.svg">
+
           <img class="downArrow" src="images/downvote.svg">
           <p class="quality" id="qualityTag">quality: <span class="qualType">swill</span></p>
+
         </div>
-        </article>
+        </li>
   </ul>
   </section>
   </div>
