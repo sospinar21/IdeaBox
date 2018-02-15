@@ -3,7 +3,8 @@ var saveButton = document.querySelector('.saveButton');
 var list = document.querySelector('.secondSection ul');
 var titleInput = document.querySelector('.titleInput').value;
 var bodyInput= document.querySelector('.bodyInput').value;
-var form = document.forms['inputForm']
+var form = document.forms['inputForm'];
+var ideaBoxContainer = document.querySelector('.list');
 var ideaString = localStorage.getItem('idea');
 var ideas = JSON.parse(ideaString);
 
@@ -19,14 +20,13 @@ if(ideas) {
   ideas = [];
 }
 
-// enable-disable save button
-function enable() {
-  if ($('bodyInput') == " " && $('titleInput') == "") {
-    $("input[type=submit]").attr('disabled','disabled');
-  } else {
-    $("input[type=submit]").removeAttr('disabled');
-  }
-}
+ideaBoxContainer.addEventListener('input', function(event) {
+  saveIdeaUpdates(event);
+});
+
+list.addEventListener('input', function(event) {
+  saveIdeaUpdates(event);
+});
 
 // clone box with the user's input
 form.addEventListener('submit',function(e) {
@@ -36,6 +36,15 @@ form.addEventListener('submit',function(e) {
   cloneIdea();
   form.reset();
 });
+
+// enable-disable save button
+function enable() {
+  if ($('bodyInput') == " " && $('titleInput') == "") {
+    $("input[type=submit]").attr('disabled','disabled');
+  } else {
+    $("input[type=submit]").removeAttr('disabled');
+  }
+}
 
 function oldIdeas() {
   for(i = 0; i < ideas.length; i++) {
@@ -67,8 +76,8 @@ function cloneIdea() {
   boxCopy.id = loop();
   var title = boxCopy.querySelector('.title');
   var body = boxCopy.querySelector('.example-body');
-  title.innerText= ideaObject.title;
-  body.innerText= ideaObject.body;
+  title.innerText = ideaObject.title;
+  body.innerText = ideaObject.body;
   list.prepend(boxCopy);
   $("input[type=submit]").attr('disabled','disabled');
 }
@@ -129,15 +138,6 @@ function downVote() {
   }
 }    
 
-var ideaBoxContainer = document.querySelector('.list');
-  ideaBoxContainer.addEventListener('input', function(event) {
-  saveIdeaUpdates(event);
-});
-
-list.addEventListener('input', function(event) {
-  saveIdeaUpdates(event);
-});
-
 // save all data
 function saveIdeaUpdates(ev) {
   var updatedIdea = ev.target.closest('.newIdeas');
@@ -146,17 +146,17 @@ function saveIdeaUpdates(ev) {
   var updatedIdeaId = updatedIdea.id;
   var existingIdeasString = localStorage.getItem('idea');
   var existingIdeasObj = JSON.parse(existingIdeasString);
-  for(i = 0; i < existingIdeasObj.length; i++){
+
+  for(i = 0; i < existingIdeasObj.length; i++) {
   var existingIdeaId = existingIdeasObj[i].id;
-  if(existingIdeaId == updatedIdeaId){
+
+  if(existingIdeaId == updatedIdeaId) {
   existingIdeasObj[i].title = updatedIdeaTitle;
   existingIdeasObj[i].body = updatedIdeaBody;
 }
 }
-
-var newIdeaString = JSON.stringify(existingIdeasObj);
-  localStorage.setItem('idea',newIdeaString);
-  console.log(newIdeaString)
+  var newIdeaString = JSON.stringify(existingIdeasObj);
+  localStorage.setItem('idea', newIdeaString);
 }
 
 // search box
