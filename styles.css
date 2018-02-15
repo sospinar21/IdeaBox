@@ -194,7 +194,6 @@ textarea {
 
 .lineThree {
   display: flex;
-  justify-content: space-between;
   margin-bottom: 25px;
   width: 300px;
 }
@@ -221,6 +220,7 @@ textarea {
 
 .downArrow {
   display: inline-block;
+  margin-right: 20px;
 }
 
 .example-body {
