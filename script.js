@@ -73,7 +73,7 @@ function loop() {
 function cloneIdea() {
   var boxCopy = boxTemplate.cloneNode(true);
   var ideaObject = ideaStorage();
-  boxCopy.id = loop();
+  boxCopy.id = ideaObject.id;
   var title = boxCopy.querySelector('.title');
   var body = boxCopy.querySelector('.example-body');
   title.innerText = ideaObject.title;
