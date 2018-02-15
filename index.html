@@ -17,14 +17,6 @@
   <form id ="inputForm">
     <input class="titleInput" type="text" placeholder="Title" required/>
     <input class="bodyInput"  type="text" placeholder="Body" required/>
-    <div id="checkbox">
-        <input class="genius ideaLevel" type="radio" name="quality" value = "genius" required="true"/>
-        <label for="genius">Genius</label>
-         <input class="plausible ideaLevel" type="radio" name="quality" value = "plausible">
-         <label for="plausible">Plausible</label>
-         <input class="swill ideaLevel" type="radio" name="quality" value = "swill" checked/>
-         <label for="swill">Swill</label>
-    </div>
     <input class="saveButton" type = "submit" value="save"></input>
   </form>
   <section class="secondSection">
@@ -32,18 +24,16 @@
     <ul class = "list">
       <li id ="ideaTemplate" class="newIdeas">
        <div class = "firstLine">
-        <textarea class="title" rows="1"></textarea>
+        <div contenteditable="true" class="title" id = "editableTitle" rows="1"></div>
         <img class="deleteButton" src="images/delete.svg">
         <br>
        </div>
-        <textarea class="example-body" rows="2"></textarea>
+        <div contenteditable="true" class="example-body" rows="2"></div>
         <br>
         <div class="lineThree">
           <img class="upArrow" src="images/upvote.svg">
-
           <img class="downArrow" src="images/downvote.svg">
           <p class="quality" id="qualityTag">quality: <span class="qualType">swill</span></p>
-
         </div>
         </li>
   </ul>

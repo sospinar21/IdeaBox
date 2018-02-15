@@ -1,13 +1,13 @@
 body{
-   margin:0;
+  margin:0;
   font-size: 0;
 }
 
 header {
-  font-family: 'Roboto Slab', serif;
   width: 100%;
   text-align: center;
   margin-bottom: 20px;
+  font-family: 'Roboto Slab', serif;
 }
 
 html{
@@ -15,23 +15,22 @@ html{
   font-size: 0;
 }
 
-b {
-  color: #6D6E71;
-}
-
 input{
   width: 53.5vw;
-  font-size: 25px;
   padding: 6px;
+  font-size: 25px;
   color: black;
   border: 2px solid #c2c6c7;
+}
+
+b{
+  color:#6D6E71;
 }
 
 img {
   height: 30px;
   width: 30px;
 }
-
 
 button {
   border-style: none;
@@ -47,11 +46,16 @@ label{
 }
 
 #checkbox{
-    display: flex;
-    justify-content: space-around;
-    width: 20vw;
-    margin: 10px auto;
-    margin-bottom: 15px;
+  width: 20vw;
+  margin: 10px auto;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-around;
+}
+
+p{
+  font-size: 18px;
+  color:#939598;
 }
 
 ul{
@@ -75,16 +79,14 @@ textarea{
   border:none;
   outline: none;
   resize: none;
-
 }
 
 main{
   width: 100%;
-  height: 377px;
+  height: 335px;
   background-color: #E5F3F2;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-  
 }
 
 .inputForm{
@@ -93,11 +95,6 @@ main{
 
 #ideaTemplate{
   display: none;
-}
-
-p{
-  font-size: 18px;
-  color:#939598;
 }
 
 .firstLine{
@@ -112,27 +109,28 @@ p{
 }
 
 .ideaHeader {
+  margin: 0;
   color: #00A79D;
   font-size: 70px;
-  margin: 0;
 }
 
 .titleInput{
-  
+  outline: none;
 }
 
 .title{
-  font-size: 30px;
-  color: #6D6E71;
-  font-weight: bold;
   margin:0;
   display: inline-block;
   flex:95%;
+  font-size: 30px;
+  color: #6D6E71;
+  font-weight: bold;
 }
 
 .bodyInput{
   margin-top: 20px;
   margin-bottom: 20px;
+  outline: none;
 }
 
 .saveButton{
@@ -142,16 +140,16 @@ p{
   padding: 7px;
   background-color: #00A79D;
   color: white;
-
 }
 
 .saveButton:hover{
   background-color: #045E55;
+  outline: none;
 }
 
 .saveButton:disabled{
-  border: 2px solid #00a79d;
-  background-color: #888181;
+ border: 2px solid #bdbfbf;
+  background-color: #8e8d8d;
   color: #b1a9a9;
 }
 
@@ -166,28 +164,17 @@ p{
   flex-shrink: 0;
   width: 20px;
 }
-.genius{
-  
-}
-
-.plausible{
- 
-}
-
-.swill{
-  
-}
 
 .secondSection {
   height: 100%;
   display: block;
   box-sizing: border-box;
   margin-top: 75px;
-
 }
 
 .searchBox {
   margin-bottom: 15px;
+  outline: none;
 }
 
 .newIdeas {
@@ -207,10 +194,10 @@ p{
 }
 
 .lineThree{
-    display: flex;
-    justify-content: space-between;
-    width: 300px;
-    margin-bottom: 25px;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
 }
 
 .upArrow:hover {
@@ -242,4 +229,54 @@ p{
   color:#939598;
   margin: 15px 0 17px 0;
   width: 100%;
+}
+
+.hidden {
+  display:none;
+}
+
+@media only screen and (max-width: 690px) {
+
+.hidden {
+    width: 98%;
+    padding: 6px;
+    font-size: 25px;
+    color: black;
+    border: 2px solid #c2c6c7;
+    display:inline-block;
+}   
+
+.first{
+  display: none;
+}
+
+.wrapper{
+  width: 80%;
+}
+
+input{
+  width: 98%;
+}
+
+.ideaHeader{
+  font-size: 50px;
+}
+
+.saveButton{
+      padding: 5px;
+}
+
+main{
+
+  height: 294px;
+}
+
+.secondSection{
+  margin-top: 55px;
+}
+
+.lineThree{
+width: 240px;
+}
+
 }
