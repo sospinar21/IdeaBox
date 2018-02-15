@@ -7,8 +7,6 @@ var bodyInput= document.querySelector('.bodyInput').value;
 var ideaString = localStorage.getItem('idea');
 var ideas = JSON.parse(ideaString);
 
-$('.secondSection').on('blur', '.title', '.example-body');
-
 $('.secondSection').on('click', '.deleteButton', deleteIdea);
 $('.secondSection').on('click', '.upArrow', upVote);
 $('.secondSection').on('click', '.downArrow', downVote);
@@ -17,16 +15,17 @@ $("form").change(enable);
 
 if(ideas) {
   window.onload = oldIdeas();
-} else {
+  } else {
   ideas = [];
 }
 
+// enable-disable save button
 function enable() {
   if ($('bodyInput') == " " && $('titleInput') == "") {
     $("input[type=submit]").attr('disabled','disabled');
   } else {
-$("input[type=submit]").removeAttr('disabled');
-}
+    $("input[type=submit]").removeAttr('disabled');
+  }
 }
 
 // clone box with the user's input
@@ -55,8 +54,8 @@ function loop(){
   for(i = 0; i < 8; i++ ){
   var randomNum = random(65, 90);
   var letter = String.fromCharCode(randomNum);
-id = letter + id;
-}
+  id = letter + id;
+  }
   return id;
 }
 
@@ -65,7 +64,7 @@ function cloneIdea(){
   var boxCopy = boxTemplate.cloneNode(true);
   var ideaObject = ideaStorage();
   boxCopy.id = loop();
-  var title = boxCopy.querySelector('textarea');
+  var title = boxCopy.querySelector('.title');
   var body = boxCopy.querySelector('.example-body');
   title.innerText= ideaObject.title;
   body.innerText= ideaObject.body;
@@ -76,7 +75,7 @@ function cloneIdea(){
 // old boxes
 function createOldIdea(idea){
   var boxCopy = boxTemplate.cloneNode(true);
-  var title = boxCopy.querySelector('textarea');
+  var title = boxCopy.querySelector('.title');
   var body = boxCopy.querySelector('.example-body');
   boxCopy.id = idea.id;
   list.prepend(boxCopy);
@@ -97,7 +96,7 @@ function ideaStorage(){
 }
 
 // delete
-  function deleteIdea(ev){
+function deleteIdea(ev){
   var box = ev.target.closest('.newIdeas');
   var id = box.id;
   list.removeChild(box);
@@ -108,41 +107,68 @@ function ideaStorage(){
   localStorage.setItem('idea', ideaStr);
 }
 
-// search bar
-$(document).ready(function($){
-  var ideasSearch = document.querySelector('.newIdeas');
-  $('li').each(function() {
-    $(this).attr('ideasSearch', $(this).text().toLowerCase())
-  })
-  $('.searchBox').on('keyup',function() {
-    var searchTerm = $(this).val().toLowerCase();
-    $('.newIdeas').each(function() {
-      if($(this).filter('[ideasSearch *= ' + searchTerm + ']').length > 0 || searchTerm.length < 1) {
-        $(this).show();
-        $('#ideaTemplate').hide()
-      } else {
-        $(this).hide();
-      }  
-      })
-  })
-})
+var ideaBoxContainer = document.querySelector('.list');
+  ideaBoxContainer.addEventListener('input', function(event){
+  saveIdeaUpdates(event);
+});
 
-function upVote() {
-  var quality = $(this).parent().find('.qualType').text();
-
-  if(quality === 'swill') {
-    $(this).parent().find('.qualType').text('plausible');
-  } else {
-    $(this).parent().find('.qualType').text('genius');
-  }
+list.addEventListener('input', function(event){
+  saveIdeaUpdates(event);
+});
+// save all data
+function saveIdeaUpdates(ev){
+  var updatedIdea = ev.target.closest('.newIdeas');
+  var updatedIdeaTitle = updatedIdea.querySelector('.title').innerText;
+  var updatedIdeaBody = updatedIdea.querySelector('.example-body').innerText;
+  var updatedIdeaId = updatedIdea.id;
+  var existingIdeasString = localStorage.getItem('idea');
+  var existingIdeasObj = JSON.parse(existingIdeasString);
+  for(i=0; i<existingIdeasObj.length; i++){
+  var existingIdeaId = existingIdeasObj[i].id;
+  if(existingIdeaId == updatedIdeaId){
+  existingIdeasObj[i].title = updatedIdeaTitle;
+  existingIdeasObj[i].body = updatedIdeaBody;
+}
 }
 
-function downVote() {
-  var quality = $(this).parent().find('.qualType').text();
+var newIdeaString = JSON.stringify(existingIdeasObj);
+  localStorage.setItem('idea',newIdeaString);
+  console.log(newIdeaString)
+}
 
-  if(quality === 'genius') {
-    $(this).parent().find('.qualType').text('plausible');
-  } else {
-    $(this).parent().find('.qualType').text('swill');
-  }
+// search box
+$('.searchBox').on('keyup',function() {
+  var ideasSearch = document.querySelectorAll('.newIdeas');
+  $('li').each(function() {
+  $(this).attr('ideasSearch', $(this).text().toLowerCase())
+  })
+  var searchTerm = $(this).val().toLowerCase();
+  $('li').each(function() {
+    if($(this).filter('[ideasSearch *= ' + searchTerm + ']').length > 0 || searchTerm.length < 1) {
+  $(this).show();
+  $('#ideaTemplate').hide();
+    } else {
+  $(this).hide();
+  }  
+})
+})
+
+// upVote
+function upVote() {
+var quality = $(this).parent().find('.qualType').text();
+if(quality === 'swill') {
+  $(this).parent().find('.qualType').text('plausible');
+} else {
+  $(this).parent().find('.qualType').text('genius');
+}
+}
+
+// downVote
+function downVote() {
+var quality = $(this).parent().find('.qualType').text();
+if(quality === 'genius') {
+  $(this).parent().find('.qualType').text('plausible');
+} else {
+  $(this).parent().find('.qualType').text('swill');
+}
 }    
