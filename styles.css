@@ -185,6 +185,8 @@ main{
 .deleteButton {
   flex:5%;
   z-index: 5;
+  display: inline-block;
+  float: right;
 }
 
 .deleteButton:hover {
@@ -214,6 +216,8 @@ main{
 
 .upArrow{
   display:inline-block;
+  padding-right: 20px;
+  margin-bottom: 5px;
 }
 
 .downArrow{

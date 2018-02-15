@@ -1,9 +1,9 @@
 var boxTemplate = document.querySelector('#ideaTemplate');
 var saveButton = document.querySelector('.saveButton');
-var form = document.forms['inputForm']
 var list = document.querySelector('.secondSection ul');
-var titleInput = document.querySelector('.titleInput').value
+var titleInput = document.querySelector('.titleInput').value;
 var bodyInput= document.querySelector('.bodyInput').value;
+var form = document.forms['inputForm']
 var ideaString = localStorage.getItem('idea');
 var ideas = JSON.parse(ideaString);
 
@@ -12,7 +12,7 @@ $('.secondSection').on('click', '.upArrow', upVote);
 $('.secondSection').on('click', '.downArrow', downVote);
 $("input[type=submit]").attr('disabled','disabled');
 $("form").change(enable);
-
+  
 if(ideas) {
   window.onload = oldIdeas();
   } else {
@@ -32,14 +32,15 @@ function enable() {
 form.addEventListener('submit',function(e) {
   enable()
   e.preventDefault();
+
   cloneIdea();
   form.reset();
 });
 
-function oldIdeas()   {
+function oldIdeas() {
   for(i = 0; i < ideas.length; i++) {
-  createOldIdea(ideas[i]);
-} 
+    createOldIdea(ideas[i]);
+  } 
 }
 
 // getting random id
@@ -49,9 +50,9 @@ function random(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function loop(){
+function loop() {
   var id = '';
-  for(i = 0; i < 8; i++ ){
+  for(i = 0; i < 8; i++ ) {
   var randomNum = random(65, 90);
   var letter = String.fromCharCode(randomNum);
   id = letter + id;
@@ -60,7 +61,7 @@ function loop(){
 }
 
 // clone box
-function cloneIdea(){
+function cloneIdea() {
   var boxCopy = boxTemplate.cloneNode(true);
   var ideaObject = ideaStorage();
   boxCopy.id = loop();
@@ -73,7 +74,7 @@ function cloneIdea(){
 }
 
 // old boxes
-function createOldIdea(idea){
+function createOldIdea(idea) {
   var boxCopy = boxTemplate.cloneNode(true);
   var title = boxCopy.querySelector('.title');
   var body = boxCopy.querySelector('.example-body');
@@ -84,19 +85,20 @@ function createOldIdea(idea){
 }
 
 //  assign values to stored boxes
-function ideaStorage(){
+function ideaStorage() {
   var idea = {};
+
   idea.title = document.querySelector('.titleInput').value;
   idea.body = document.querySelector('.bodyInput').value;
   idea.id = loop();
   ideas.push(idea);
   var ideaString = JSON.stringify(ideas);
-  localStorage.setItem('idea',ideaString);
+  localStorage.setItem('idea', ideaString);
   return idea;
 }
 
 // delete
-function deleteIdea(ev){
+function deleteIdea(ev) {
   var box = ev.target.closest('.newIdeas');
   var id = box.id;
   list.removeChild(box);
@@ -107,23 +109,44 @@ function deleteIdea(ev){
   localStorage.setItem('idea', ideaStr);
 }
 
+function upVote() {
+  var quality = $(this).parent().find('.qualType').text();
+
+  if(quality === 'swill') {
+    $(this).parent().find('.qualType').text('plausible');
+  } else {
+    $(this).parent().find('.qualType').text('genius');
+  }
+}
+
+function downVote() {
+  var quality = $(this).parent().find('.qualType').text();
+
+  if(quality === 'genius') {
+    $(this).parent().find('.qualType').text('plausible');
+  } else {
+    $(this).parent().find('.qualType').text('swill');
+  }
+}    
+
 var ideaBoxContainer = document.querySelector('.list');
-  ideaBoxContainer.addEventListener('input', function(event){
+  ideaBoxContainer.addEventListener('input', function(event) {
   saveIdeaUpdates(event);
 });
 
-list.addEventListener('input', function(event){
+list.addEventListener('input', function(event) {
   saveIdeaUpdates(event);
 });
+
 // save all data
-function saveIdeaUpdates(ev){
+function saveIdeaUpdates(ev) {
   var updatedIdea = ev.target.closest('.newIdeas');
   var updatedIdeaTitle = updatedIdea.querySelector('.title').innerText;
   var updatedIdeaBody = updatedIdea.querySelector('.example-body').innerText;
   var updatedIdeaId = updatedIdea.id;
   var existingIdeasString = localStorage.getItem('idea');
   var existingIdeasObj = JSON.parse(existingIdeasString);
-  for(i=0; i<existingIdeasObj.length; i++){
+  for(i = 0; i < existingIdeasObj.length; i++){
   var existingIdeaId = existingIdeasObj[i].id;
   if(existingIdeaId == updatedIdeaId){
   existingIdeasObj[i].title = updatedIdeaTitle;
@@ -152,23 +175,3 @@ $('.searchBox').on('keyup',function() {
   }  
 })
 })
-
-// upVote
-function upVote() {
-var quality = $(this).parent().find('.qualType').text();
-if(quality === 'swill') {
-  $(this).parent().find('.qualType').text('plausible');
-} else {
-  $(this).parent().find('.qualType').text('genius');
-}
-}
-
-// downVote
-function downVote() {
-var quality = $(this).parent().find('.qualType').text();
-if(quality === 'genius') {
-  $(this).parent().find('.qualType').text('plausible');
-} else {
-  $(this).parent().find('.qualType').text('swill');
-}
-}    
