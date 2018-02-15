@@ -37,7 +37,6 @@ form.addEventListener('submit',function(e) {
   form.reset();
 });
 
-// enable-disable save button
 function enable() {
   if ($('bodyInput') == " " && $('titleInput') == "") {
     $("input[type=submit]").attr('disabled','disabled');
@@ -52,7 +51,6 @@ function oldIdeas() {
   } 
 }
 
-// getting random id
 function random(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -69,7 +67,6 @@ function loop() {
   return id;
 }
 
-// clone box
 function cloneIdea() {
   var boxCopy = boxTemplate.cloneNode(true);
   var ideaObject = ideaStorage();
@@ -82,7 +79,6 @@ function cloneIdea() {
   $("input[type=submit]").attr('disabled','disabled');
 }
 
-// old boxes
 function createOldIdea(idea) {
   var boxCopy = boxTemplate.cloneNode(true);
   var title = boxCopy.querySelector('.title');
@@ -93,7 +89,6 @@ function createOldIdea(idea) {
   body.innerText = idea.body;
 }
 
-//  assign values to stored boxes
 function ideaStorage() {
   var idea = {};
 
@@ -106,7 +101,6 @@ function ideaStorage() {
   return idea;
 }
 
-// delete
 function deleteIdea(ev) {
   var box = ev.target.closest('.newIdeas');
   var id = box.id;
@@ -138,7 +132,6 @@ function downVote() {
   }
 }    
 
-// save all data
 function saveIdeaUpdates(ev) {
   var updatedIdea = ev.target.closest('.newIdeas');
   var updatedIdeaTitle = updatedIdea.querySelector('.title').innerText;
